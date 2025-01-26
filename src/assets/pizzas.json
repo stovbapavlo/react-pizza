@@ -1,0 +1,102 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/thumbnail_IjDnxxl-fwifPl-JNGRIkK.jpeg_Y-S-d.webp",
+    "title": "Four seasons",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 15,
+    "category": 0,
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/thumbnail_fPfanDa-qTFmJXD-CFfRcqq.jpeg_r-W-e.webp",
+    "title": "Chees",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 12,
+    "category": 0,
+    "rating": 6
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/thumbnail_NVuMDHL-RsCRUuQ-eQeITJE_d-V-f.webp",
+    "title": "BBQ chicken",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 20,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/thumbnail_avPzcij-tkbkeAE-PbrDQst.jpeg_k-r-X.webp",
+    "title": "Sweet and sour chicken",
+    "types": [1],
+    "sizes": [26, 30, 40],
+    "price": 16,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/thumbnail_JCHnKiX-IEOwEte-cDvRCIC.jpeg_q-g-b.webp  ",
+    "title": "Cheeseburger Pizza",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 11,
+    "category": 3,
+    "rating": 8
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/thumbnail_MQkxeSs-lWQVYXv-oHjjARl.jpeg_k-H-n.webp",
+    "title": "American",
+    "types": [0],
+    "sizes": [26, 30, 40],
+    "price": 11,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/GgJZuXc-fHXetoI-DoBQtbK.jpeg.webp",
+    "title": "Pepperoni",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 14,
+    "category": 1,
+    "rating": 9
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/thumbnail_bswHYos-gkRXJi-EdwddKc.jpeg_U-S-L.webp",
+    "title": "Margarita",
+    "types": [0, 1],
+    "sizes": [26, 32, 40],
+    "price": 14,
+    "category": 4,
+    "rating": 10
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/thumbnail_FGaaVOR-aeENobr-uUUOJfl.jpeg_h-J-e.webp",
+    "title": "New",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 17,
+    "category": 5,
+    "rating": 10
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://cdn-media.choiceqr.com/prod-eat-streetpizza5/menu/ECWNalV-ffGszOp-XlDLerd.webp",
+    "title": "Vegetables and mushrooms 🌱",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 12,
+    "category": 5,
+    "rating": 7
+  }
+]
