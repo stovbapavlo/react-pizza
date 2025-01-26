@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [items, setItems] = useState([]);
-  //https://67963bf6bedc5d43a6c4a399.mockapi.io/items
 
   useEffect(() => {
     fetch('https://67963bf6bedc5d43a6c4a399.mockapi.io/items')
@@ -27,15 +26,7 @@ function App() {
           <h2 className="content__title">All pizzas</h2>
           <div className="content__items">
             {items.map((obj) => (
-              <PizzaBlock
-                key={obj.id}
-                {...obj}
-                // title={obj.title}
-                // price={obj.price}
-                // imageUrl={obj.imageUrl}
-                // sizes={obj.sizes}
-                // types={obj.types}
-              />
+              <PizzaBlock key={obj.id} {...obj} />
             ))}
           </div>
         </div>
