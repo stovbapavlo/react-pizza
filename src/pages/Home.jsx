@@ -2,13 +2,15 @@ import { Categories } from '../components/Categories';
 import { Sort } from '../components/Sort';
 import { PizzaBlock } from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
+import { Pagination } from '../components/Pagination';
 
 import { useEffect, useState } from 'react';
 
-export const Home = () => {
+export const Home = ({ searchValue }) => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [sortType, setSortType] = useState({
     name: 'rating',
     sortProperty: 'rating',
@@ -17,8 +19,11 @@ export const Home = () => {
 
   useEffect(() => {
     setIsLoading(true);
+
+    const search = searchValue ? `&search=${encodeURIComponent(searchValue)}` : '';
+
     fetch(
-      `https://67963bf6bedc5d43a6c4a399.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortType.sortProperty}&order=${order}`,
+      `https://67963bf6bedc5d43a6c4a399.mockapi.io/items?page=${currentPage}&limit=4&${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortType.sortProperty}&order=${order}${search}`,
     )
       .then((res) => res.json())
       .then((arr) => {
@@ -26,7 +31,11 @@ export const Home = () => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, order]);
+  }, [categoryId, sortType, order, searchValue, currentPage]);
+
+  const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
+
+  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
 
   return (
     <div className="container">
@@ -40,11 +49,8 @@ export const Home = () => {
         />
       </div>
       <h2 className="content__title">All pizzas</h2>
-      <div className="content__items">
-        {isLoading
-          ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-          : items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
-      </div>
+      <div className="content__items">{isLoading ? skeletons : pizzas}</div>
+      <Pagination onChangePage={(number) => setCurrentPage(number)} />
     </div>
   );
 };
