@@ -13,11 +13,12 @@ export const Home = () => {
     name: 'rating',
     sortProperty: 'rating',
   });
+  const [order, setOrder] = useState('desc');
 
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `https://67963bf6bedc5d43a6c4a399.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortType.sortProperty}&order=desc`,
+      `https://67963bf6bedc5d43a6c4a399.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortType.sortProperty}&order=${order}`,
     )
       .then((res) => res.json())
       .then((arr) => {
@@ -25,12 +26,18 @@ export const Home = () => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType]);
+  }, [categoryId, sortType, order]);
+
   return (
     <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onChangeCategory={(i) => setCategoryId(i)} />
-        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+        <Sort
+          value={sortType}
+          order={order}
+          setOrder={setOrder}
+          onChangeSort={(i) => setSortType(i)}
+        />
       </div>
       <h2 className="content__title">All pizzas</h2>
       <div className="content__items">
