@@ -20,7 +20,7 @@ export const Home = ({ searchValue }) => {
   useEffect(() => {
     setIsLoading(true);
 
-    const search = searchValue ? `&search=${encodeURIComponent(searchValue)}` : '';
+    const search = searchValue ? `&search=${encodeURIComponent(searchValue)}` : ''; //commit
 
     fetch(
       `https://67963bf6bedc5d43a6c4a399.mockapi.io/items?page=${currentPage}&limit=4&${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortType.sortProperty}&order=${order}${search}`,
