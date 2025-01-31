@@ -3,10 +3,12 @@ import { Sort } from '../components/Sort';
 import { PizzaBlock } from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 import { Pagination } from '../components/Pagination';
+import { AppContext } from '../App';
 
 import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 
-export const Home = ({ searchValue }) => {
+export const Home = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
@@ -16,6 +18,8 @@ export const Home = ({ searchValue }) => {
     sortProperty: 'rating',
   });
   const [order, setOrder] = useState('desc');
+
+  const { searchValue } = useContext(AppContext);
 
   useEffect(() => {
     setIsLoading(true);
