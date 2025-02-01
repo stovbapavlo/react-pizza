@@ -1,5 +1,5 @@
 export function Categories({ value, onChangeCategory }) {
-  const categories = ['All', 'Meat', 'Vegat', 'Grill', 'Spicy', 'Closed'];
+  const categories = ['All', 'Meat', 'Vegan', 'Grill', 'Spicy', 'Closed'];
 
   return (
     <div className="categories">
