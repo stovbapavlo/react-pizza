@@ -26,7 +26,6 @@ export function Sort() {
       if (!event.composedPath().includes(sortRef.current)) {
         setIsVisible(false);
       }
-      console.log('click');
     };
 
     document.body.addEventListener('click', handleClickOutside);
