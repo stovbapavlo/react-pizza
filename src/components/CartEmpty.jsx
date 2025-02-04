@@ -6,16 +6,15 @@ export const CartEmpty = () => {
   return (
     <>
       <div className="cart cart--empty">
-        <h2>
-          Корзина пустая <icon>😕</icon>
-        </h2>
+        <h2>Cart is empty 😕</h2>
         <p>
-          Вероятней всего, вы не заказывали ещё пиццу.
-          <br /> Для того, чтобы заказать пиццу, перейди на главную страницу.
+          Most likely, you haven't ordered a pizza yet.
+          <br />
+          To order a pizza, go to the homepage.
         </p>
         <img src={cartEmptyImg} alt="Empty cart" />
         <Link to="/" className="button button--black">
-          <span>Вернуться назад</span>
+          <span>Return to homepage</span>
         </Link>
       </div>
     </>

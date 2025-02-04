@@ -49,7 +49,7 @@ export const Cart = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"></path>
             </svg>
-            Корзина
+            Shopping Cart
           </h2>
           <div onClick={onClickClear} className="cart__clear">
             <svg
@@ -84,7 +84,7 @@ export const Cart = () => {
                 strokeLinejoin="round"></path>
             </svg>
 
-            <span>Очистить корзину</span>
+            <span>Empty cart</span>
           </div>
         </div>
         <div className="content__items">
@@ -96,11 +96,11 @@ export const Cart = () => {
           <div className="cart__bottom-details">
             <span>
               {' '}
-              Всего пицц: <b>{totalCount} шт.</b>{' '}
+              All pizzas: <b>{totalCount} pcs.</b>{' '}
             </span>
             <span>
               {' '}
-              Сумма заказа: <b>{totalPrice} $</b>{' '}
+              Total price: <b>{totalPrice} $</b>{' '}
             </span>
           </div>
           <div className="cart__bottom-buttons">
@@ -119,10 +119,10 @@ export const Cart = () => {
                   strokeLinejoin="round"></path>
               </svg>
 
-              <span>Вернуться назад</span>
+              <span>Return to homepage</span>
             </Link>
             <div className="button pay-btn">
-              <span>Оплатить сейчас</span>
+              <span>Proceed to payment</span>
             </div>
           </div>
         </div>
