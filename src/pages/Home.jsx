@@ -100,7 +100,7 @@ export const Home = () => {
       <h2 className="content__title">All pizzas</h2>
       {status === 'error' ? (
         <div className="content__error-info">
-          <h2>No items 😕</h2>
+          <h2>No items</h2>
           <p>something went wrong</p>
         </div>
       ) : (
