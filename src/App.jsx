@@ -1,6 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import { createContext } from 'react';
 
 import './scss/app.scss';
 import { Header } from './components/Header';
