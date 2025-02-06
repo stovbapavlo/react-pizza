@@ -1,9 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-export const FullPizza = () => {
-  const [pizza, setPizza] = useState();
+export const FullPizza: FC = () => {
+  const [pizza, setPizza] = useState<{
+    imageUrl: string;
+    title: string;
+    price: number;
+  }>();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -13,7 +17,7 @@ export const FullPizza = () => {
         const { data } = await axios.get(`https://67963bf6bedc5d43a6c4a399.mockapi.io/items/${id}`);
         setPizza(data);
       } catch (error) {
-        alert('something went wrong!', error);
+        alert('something went wrong!');
         navigate('/');
       }
     }
@@ -21,7 +25,7 @@ export const FullPizza = () => {
   }, []);
 
   if (!pizza) {
-    return 'loading...';
+    return <>loading...</>;
   }
 
   return (
