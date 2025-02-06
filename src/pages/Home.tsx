@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ import { PizzaBlock } from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 import { Pagination } from '../components/Pagination';
 
-export const Home = () => {
+export const Home: FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = useRef(false);
@@ -22,12 +22,12 @@ export const Home = () => {
 
   const sortType = sort.sortProperty;
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onPageChange = (number) => {
-    dispatch(setCurrentPage(number));
+  const onPageChange = (value: number) => {
+    dispatch(setCurrentPage(value));
   };
 
   const getPizzas = async () => {
@@ -87,7 +87,7 @@ export const Home = () => {
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
-  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+  const pizzas = items.map((obj: any) => <PizzaBlock key={obj.id} {...obj} />);
 
   return (
     <div className="container">

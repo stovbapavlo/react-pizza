@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { FC } from 'react';
 
 import logoSvg from '../assets/img/pizza-logo.svg';
 import { Search } from './Search';
