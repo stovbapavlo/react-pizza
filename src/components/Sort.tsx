@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setSort, setOrder, selectSort } from '../redux/slices/filterSlice';
+import { setSort, setOrder, selectSort, SortKey, Order } from '../redux/slices/filterSlice';
 
 type SortItem = {
   name: string;
-  sortProperty: string;
+  sortProperty: SortKey;
 };
 
 export const sortList: SortItem[] = [
-  { name: 'rating', sortProperty: 'rating' },
-  { name: 'price', sortProperty: 'price' },
-  { name: 'alphabet', sortProperty: 'title' },
+  { name: 'rating', sortProperty: SortKey.RATING },
+  { name: 'price', sortProperty: SortKey.PRICE },
+  { name: 'title', sortProperty: SortKey.TITLE },
 ];
 
 export function Sort() {
@@ -51,7 +51,7 @@ export function Sort() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           style={{
-            transform: order === 'desc' ? 'rotate(180deg)' : 'rotate(0deg)',
+            transform: order === Order.DESC ? 'rotate(180deg)' : 'rotate(0deg)',
             cursor: 'pointer',
           }}>
           <path
