@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
+import { addItem, minusItem, removeItem, TCartItem } from '../redux/slices/cartSlice';
 import { FC } from 'react';
 
 type CartItemProps = {
@@ -19,7 +19,7 @@ export const CartItem: FC<CartItemProps> = ({ id, title, type, price, size, coun
     dispatch(
       addItem({
         id,
-      }),
+      } as TCartItem),
     );
   };
   const onCliclkMinus = () => {
