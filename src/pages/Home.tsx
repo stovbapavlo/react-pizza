@@ -17,10 +17,8 @@ import { Sort, sortList } from '../components/Sort';
 import { PizzaBlock } from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 import { Pagination } from '../components/Pagination';
-import { AppDispatch } from '../redux/store';
+import { useAppDispatch } from '../redux/store';
 import { parseQueryParams } from '../helpers/parseQueryParams';
-
-export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 export const Home: FC = () => {
   const navigate = useNavigate();
@@ -56,28 +54,28 @@ export const Home: FC = () => {
   };
 
   //Перевірка на перший рендер якщо змінили параметри
-  useEffect(() => {
-    if (isMounted.current) {
-      const queryString = qs.stringify({
-        sortType: sort.sortProperty,
-        order,
-        categoryId,
-        currentPage,
-      });
-      navigate(`?${queryString}`);
-    }
-    isMounted.current = true;
-  }, [categoryId, sortType, order, searchValue, currentPage]);
+  // useEffect(() => {
+  //   if (isMounted.current) {
+  //     const queryString = qs.stringify({
+  //       sortType: sort.sortProperty,
+  //       order,
+  //       categoryId,
+  //       currentPage,
+  //     });
+  //     navigate(`?${queryString}`);
+  //   }
+  //   isMounted.current = true;
+  // }, [categoryId, sortType, order, searchValue, currentPage]);
 
   //Перевірка URL параматрів якщо був перший рендер і сохраняєм в redux
-  useEffect(() => {
-    if (window.location.search) {
-      const stateFromURL = parseQueryParams(window.location.search);
+  // useEffect(() => {
+  //   if (window.location.search) {
+  //     const stateFromURL = parseQueryParams(window.location.search);
 
-      dispatch(setFilters(stateFromURL));
-      isSearch.current = true;
-    }
-  }, []);
+  //     dispatch(setFilters(stateFromURL));
+  //     isSearch.current = true;
+  //   }
+  // }, []);
 
   //Якщо був перший рендер то робимо запит
   useEffect(() => {

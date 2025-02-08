@@ -1,5 +1,5 @@
 import qs from 'qs';
-import { SortKey, Order, FilterSliceState } from '../redux/slices/filterSlice';
+import { Order, FilterSliceState } from '../redux/slices/filterSlice';
 import { sortList } from '../components/Sort';
 
 interface QueryParams {
