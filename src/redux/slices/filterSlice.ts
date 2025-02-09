@@ -12,7 +12,7 @@ export enum SortKey {
   TITLE = 'title',
 }
 
-export type Sort = {
+export type TSort = {
   name: string;
   sortProperty: SortKey;
 };
@@ -21,7 +21,7 @@ export interface FilterSliceState {
   searchValue: string;
   categoryId: number;
   currentPage: number;
-  sort: Sort;
+  sort: TSort;
   order: Order.DESC | Order.ASC;
 }
 
@@ -46,7 +46,7 @@ const filterSlice = createSlice({
     setCategoryId(state, action: PayloadAction<number>) {
       state.categoryId = action.payload;
     },
-    setSort(state, action: PayloadAction<Sort>) {
+    setSort(state, action: PayloadAction<TSort>) {
       state.sort = action.payload;
     },
     setOrder(state) {
@@ -65,6 +65,8 @@ const filterSlice = createSlice({
 });
 
 export const selectSort = (state: RootState) => state.filter;
+
+export const selectSortOrder = (state: RootState) => state.filter.order;
 
 export const { setCategoryId, setSort, setOrder, setCurrentPage, setFilters, setSearchValue } =
   filterSlice.actions;

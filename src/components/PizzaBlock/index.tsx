@@ -2,7 +2,7 @@ import { useState, FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addItem, CartItem, selectCartItemById } from '../../redux/slices/cartSlice';
+import { addItem, TCartItem, selectCartItemById } from '../../redux/slices/cartSlice';
 
 const typeNames = ['thin', 'traditional'];
 
@@ -24,7 +24,7 @@ export const PizzaBlock: FC<PizzaBlockProps> = ({ id, title, price, imageUrl, si
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
-    const item: CartItem = {
+    const item: TCartItem = {
       id,
       title,
       price,
