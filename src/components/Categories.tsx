@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
+import { useWhyDidYouUpdate } from 'ahooks';
 
 type CategoriesProps = {
   value: number;
@@ -7,7 +8,7 @@ type CategoriesProps = {
 
 const categories = ['All', 'Meat', 'Vegan', 'Grill', 'Spicy', 'Closed'];
 
-export const Categories: FC<CategoriesProps> = ({ value, onChangeCategory }) => {
+export const Categories: FC<CategoriesProps> = memo(({ value, onChangeCategory }) => {
   return (
     <div className="categories">
       <ul>
@@ -19,4 +20,4 @@ export const Categories: FC<CategoriesProps> = ({ value, onChangeCategory }) => 
       </ul>
     </div>
   );
-};
+});
