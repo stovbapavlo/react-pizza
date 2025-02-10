@@ -1,15 +1,8 @@
 import { FC, memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import {
-  setSort,
-  setOrder,
-  SortKey,
-  Order,
-  TSort,
-  selectSort,
-  selectSortOrder,
-} from '../redux/slices/filterSlice';
+import { Order, SortKey, TSort } from '../redux/slices/filter/types';
+import { selectSortOrder } from '../redux/slices/filter/selectors';
+import { setOrder, setSort } from '../redux/slices/filter/slice';
 
 type SortItem = {
   name: string;
