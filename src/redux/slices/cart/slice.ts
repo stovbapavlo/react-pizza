@@ -1,28 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
+import { getCartFromLocalStorage } from '../../../utils/getCartFromLocalStorage';
+import { updateTotalPrice } from '../../../utils/updateTotalPrice';
+import { CartSliceState, TCartItem } from './types';
 
-export type TCartItem = {
-  id: string;
-  title: string;
-  price: number;
-  imageUrl: string;
-  type: string;
-  size: number;
-  count: number;
-};
-
-interface CartSliceState {
-  totalPrice: number;
-  items: TCartItem[];
-}
+const { items, totalPrice } = getCartFromLocalStorage();
 
 const initialState: CartSliceState = {
-  totalPrice: 0,
-  items: [],
-};
-
-const updateTotalPrice = (state: CartSliceState) => {
-  state.totalPrice = state.items.reduce((sum, obj) => obj.price * obj.count + sum, 0);
+  totalPrice,
+  items,
 };
 
 const cartSlice = createSlice({
@@ -34,19 +19,19 @@ const cartSlice = createSlice({
 
       findItem ? findItem.count++ : state.items.push({ ...action.payload, count: 1 });
 
-      updateTotalPrice(state);
+      state.totalPrice = updateTotalPrice(state.items);
     },
     minusItem(state, action: PayloadAction<string>) {
       const findItem = state.items.find((obj) => obj.id === action.payload);
 
       if (findItem) findItem.count--;
 
-      updateTotalPrice(state);
+      state.totalPrice = updateTotalPrice(state.items);
     },
     removeItem(state, action: PayloadAction<string>) {
       state.items = state.items.filter((obj) => obj.id !== action.payload);
 
-      updateTotalPrice(state);
+      state.totalPrice = updateTotalPrice(state.items);
     },
     clearItem(state) {
       state.items = [];
@@ -54,10 +39,6 @@ const cartSlice = createSlice({
     },
   },
 });
-
-export const selectCart = (state: RootState) => state.cart;
-export const selectCartItemById = (id: string) => (state: RootState) =>
-  state.cart.items.find((obj) => obj.id === id);
 
 export const { addItem, removeItem, clearItem, minusItem } = cartSlice.actions;
 
