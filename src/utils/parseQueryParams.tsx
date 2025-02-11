@@ -1,6 +1,6 @@
 import qs from 'qs';
 import { Order, FilterSliceState } from '../redux/slices/filter/types';
-import { sortList } from '../components/Sort';
+import { sortList } from '../components';
 
 interface QueryParams {
   searchValue?: string | string[];
